@@ -24,7 +24,6 @@ trait ContaoModelConsumerTrait
         } else {
             throw new ModelNotFoundException('Given data was neither model or collection from contao');
         }
-
     }
 
 }

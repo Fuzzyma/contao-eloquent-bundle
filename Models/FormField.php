@@ -11,7 +11,7 @@ namespace Fuzzyma\Contao\EloquentBundle\Models;
 use Fuzzyma\Contao\EloquentBundle\Traits\PidScopeTrait;
 use Fuzzyma\Contao\EloquentBundle\Traits\PublishedScopeTrait;
 use Fuzzyma\Contao\EloquentBundle\Traits\SortedTrait;
-use Illuminate\Database\Query\Builder;
+use Fuzzyma\Contao\EloquentBundle\Traits\VisibleScopeTrait;
 
 
 /**
@@ -27,6 +27,9 @@ class FormField extends Model{
     use PublishedScopeTrait;
     use PidScopeTrait;
     use SortedTrait;
+    use VisibleScopeTrait{
+        scopeVisible as ignoreFePreviewScope;
+    }
 
     /*
 		if (isset($arrOptions['ignoreFePreview']) || !BE_USER_LOGGED_IN)
@@ -34,9 +37,5 @@ class FormField extends Model{
 			$arrColumns[] = "$t.invisible=''";
 		}
     */
-
-    public function ignoreFePreviewScope(Builder $query){
-        return $query->where('invisible','');
-    }
 
 } 

@@ -6,9 +6,9 @@ makes eloquent usable in symfony. We want to go a step further and integrate Elo
 At the moment this bundle implements
 - hasMany, hasOne, belongsTo, belongsToMany relations
 - command to create dca-files for pivot tables
-- PublishedScopeTrait (to query only published models)
-- ContaoFilesModelTrait (possibility to return a contao file model instead of just the uuid)
+- Several Traits you may use in your models
 - ContaoModelConsumerTrait (turns contao models into eloquent models)
+- Eloquent models for all core Contao models
 
 More features which will be implemented:
 - hasManyThrough
@@ -16,7 +16,6 @@ More features which will be implemented:
 - morphMany
 - morphToMany
 - morphedByMany
-- Eloquent models for all core Contao models
 
 ## Guide
 

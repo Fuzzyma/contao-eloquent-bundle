@@ -8,6 +8,8 @@
 namespace Fuzzyma\Contao\EloquentBundle\Hooks;
 
 
+use Contao\Input;
+
 class DCAEloquentifier
 {
 
@@ -106,6 +108,9 @@ class DCAEloquentifier
             $collection = $GLOBALS['TL_DCA'][$strTable]['config']['model']::with($relation)->find($dc->id)->$relation;
 
             if (!$collection) {
+                if(Input::get('act') == 'edit' && $eloquent['relation'] == 'belongsTo' && Input::get('pid')){
+                    return $varValue;
+                }
                 return null;
             }
 

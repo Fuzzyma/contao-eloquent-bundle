@@ -5,4 +5,4 @@
  * @package: ContaoEloquentBundle
  */
 
-$GLOBALS['TL_HOOKS']['loadDataContainer'][] = array(\Fuzzyma\Contao\EloquentBundle\Hooks\DCAEloquentifier::class, 'parseDCA');
+$GLOBALS['TL_HOOKS']['loadDataContainer'][] = array(Fuzzyma\Contao\EloquentBundle\Hooks\DCAEloquentifier::class, 'parseDCA');

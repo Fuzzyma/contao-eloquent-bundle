@@ -25,7 +25,7 @@ trait ContaoFilesModelTrait
     }
 
     // we check if its a file model and extract the uuid. If its a string we convert it.
-    private static function setContaoFile($file)
+    private function setContaoFile($file)
     {
         if (is_array($file)) {
             return serialize(array_map([__CLASS__, 'setContaoFile'], $file));

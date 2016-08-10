@@ -17,6 +17,8 @@ use Fuzzyma\Contao\EloquentBundle\Traits\ContaoModelConsumerTrait;
  */
 class StyleSheet extends Model{
 
+    protected $table = 'style_sheet';
+
     use ContaoModelConsumerTrait;
 
     public function findByIds($ids){

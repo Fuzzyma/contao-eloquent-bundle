@@ -24,6 +24,8 @@ use Fuzzyma\Contao\EloquentBundle\Traits\VisibleScopeTrait;
  */
 class FormField extends Model{
 
+    protected $table = 'form_field';
+
     use PublishedScopeTrait;
     use PidScopeTrait;
     use SortedTrait;

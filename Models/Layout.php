@@ -10,4 +10,6 @@ namespace Fuzzyma\Contao\EloquentBundle\Models;
 
 class Layout extends Model{
 
+    protected $table = 'layout';
+
 } 

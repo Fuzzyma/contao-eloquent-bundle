@@ -22,6 +22,8 @@ use Fuzzyma\Contao\EloquentBundle\Traits\VisibleScopeTrait;
  */
 class ImageSizeItem extends Model{
 
+    protected $table = 'image_size_item';
+
     use PidScopeTrait;
     use VisibleScopeTrait;
 

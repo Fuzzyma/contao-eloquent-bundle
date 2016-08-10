@@ -22,6 +22,8 @@ use Fuzzyma\Contao\EloquentBundle\Traits\ActiveScopeTrait;
  */
 class MemberGroup extends Model{
 
+    protected $table = 'member_group';
+
     use ActiveScopeTrait;
 
 } 

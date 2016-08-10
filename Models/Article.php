@@ -11,7 +11,7 @@ namespace Fuzzyma\Contao\EloquentBundle\Models;
 use Fuzzyma\Contao\EloquentBundle\Traits\PidScopeTrait;
 use Fuzzyma\Contao\EloquentBundle\Traits\PublishedScopeTrait;
 use Fuzzyma\Contao\EloquentBundle\Traits\SortedTrait;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 
 /**
@@ -31,6 +31,8 @@ use Illuminate\Database\Query\Builder;
  */
 class Article extends Model{
 
+    protected $table = 'article';
+
     use PublishedScopeTrait;
     use SortedTrait;
     use PidScopeTrait;
@@ -39,7 +41,7 @@ class Article extends Model{
         return $query->published()->idOrAlias($idOrAlias)->pid($pid);
     }
 
-    public function withTeaserScope(Builder $query){
+    public function scopeWithTeaser(Builder $query){
         return $query->where('showTeaser', 1);
     }
 }

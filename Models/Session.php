@@ -8,7 +8,7 @@
 namespace Fuzzyma\Contao\EloquentBundle\Models;
 
 use Fuzzyma\Contao\EloquentBundle\Traits\PidScopeTrait;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 
 /**
@@ -21,13 +21,15 @@ use Illuminate\Database\Query\Builder;
  */
 class Session extends Model{
 
+    protected $table = 'session';
+
     use PidScopeTrait;
 
-    public function hashScope(Builder $query, $hash){
+    public function scopeHash(Builder $query, $hash){
         return $query->where('hash', $hash);
     }
 
-    public function nameScope(Builder $query, $name){
+    public function scopeName(Builder $query, $name){
         return $query->where('name', $name);
     }
 

@@ -13,4 +13,6 @@ namespace Fuzzyma\Contao\EloquentBundle\Models;
  */
 class Module extends Model{
 
+    protected $table = 'module';
+
 }

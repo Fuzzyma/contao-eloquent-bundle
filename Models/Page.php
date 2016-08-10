@@ -9,7 +9,7 @@ namespace Fuzzyma\Contao\EloquentBundle\Models;
 use Fuzzyma\Contao\EloquentBundle\Traits\PidScopeTrait;
 use Fuzzyma\Contao\EloquentBundle\Traits\PublishedScopeTrait;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 //use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -38,14 +38,16 @@ use Illuminate\Database\Query\Builder;
  */
 class Page extends Model{
 
+    protected $table = 'page';
+
     use PublishedScopeTrait;
     use PidScopeTrait;
 
-    public function hostScope(Builder $query, $host){
+    public function scopeHost(Builder $query, $host){
         return $query->where('dns', $host)->orWhere('dns')->orderBy('dns', 'DESC');
     }
 
-    public function languageScope(Builder $query, $language)
+    public function scopeLanguage(Builder $query, $language)
     {
         if (!is_array($language)) $language = [$language];
 
@@ -55,28 +57,28 @@ class Page extends Model{
         return $query->orderBy('sorting', 'ASC');
     }
 
-    public function rootScope(Builder $query){
+    public function scopeRoot(Builder $query){
         return $query->where('type', 'root');
     }
 
-    public function regularScope(Builder $query){
+    public function scopeRegular(Builder $query){
         return $query->where('type', 'regular');
     }
 
-    public function forbiddenScope(Builder $query){
+    public function scopeForbidden(Builder $query){
         return $query->where('type', '403');
     }
 
-    public function notFoundScope(Builder $query){
+    public function scopeNotFound(Builder $query){
         return $query->where('type', '404');
     }
 
-    public function noGuestScope(Builder $query){
+    public function scopeNoGuest(Builder $query){
         return $query->where('guests', '');
     }
 
     public function parent(){
-        $this->belongsTo(Page::class, 'pid');
+        return $this->belongsTo(Page::class, 'pid');
     }
 
     public function parents(){
@@ -89,7 +91,7 @@ class Page extends Model{
     }
 
     public function subpages(){
-        $this->hasMany(Page::class, 'pid');
+        return $this->hasMany(Page::class, 'pid');
     }
 
 

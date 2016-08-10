@@ -9,7 +9,7 @@ namespace Fuzzyma\Contao\EloquentBundle\Traits;
 
 
 use Contao\Date;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 trait ActiveScopeTrait
 {

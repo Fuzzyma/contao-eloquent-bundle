@@ -14,4 +14,6 @@ namespace Fuzzyma\Contao\EloquentBundle\Models;
  */
 class User extends Model{
 
+    protected $table = 'user';
+
 }

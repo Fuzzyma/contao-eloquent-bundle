@@ -8,7 +8,7 @@
 namespace Fuzzyma\Contao\EloquentBundle\Traits;
 
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 trait VisibleScopeTrait
 {

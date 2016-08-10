@@ -14,5 +14,6 @@ namespace Fuzzyma\Contao\EloquentBundle\Models;
  */
 class ImageSize extends Model{
 
+    protected $table = 'image_size';
 
 } 

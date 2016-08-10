@@ -7,12 +7,12 @@
 
 namespace Fuzzyma\Contao\EloquentBundle\Traits;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 trait PidScopeTrait
 {
 
-    public function pidScope(Builder $query, $pid){
+    public function scopePid(Builder $query, $pid){
         return $query->where('pid', $pid);
     }
 

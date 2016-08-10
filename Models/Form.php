@@ -15,7 +15,9 @@ use Fuzzyma\Contao\EloquentBundle\Traits\VisibleScopeTrait;
  * Class Form
  * @package Fuzzyma\Contao\EloquentBundle\Models
  */
-class Form  extends Model{
+class Form extends Model{
+
+    protected $table = 'form';
 
     use VisibleScopeTrait;
 

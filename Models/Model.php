@@ -8,7 +8,7 @@
 namespace Fuzzyma\Contao\EloquentBundle\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class Model
@@ -16,10 +16,10 @@ use Illuminate\Database\Query\Builder;
  */
 class Model extends Eloquent{
 
-    private $guarded = [];
-    private $timestamps = false;
+    protected $guarded = [];
+    public $timestamps = false;
 
-    public function idOrAliasScope(Builder $query, $idOrAlias){
+    public function scopeIdOrAlias(Builder $query, $idOrAlias){
         return $query->where('id', $idOrAlias)->orWhere('alias', $idOrAlias);
     }
 

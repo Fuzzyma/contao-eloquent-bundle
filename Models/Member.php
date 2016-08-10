@@ -9,7 +9,7 @@ namespace Fuzzyma\Contao\EloquentBundle\Models;
 
 
 use Fuzzyma\Contao\EloquentBundle\Traits\ActiveScopeTrait;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 
 /**
@@ -23,17 +23,19 @@ use Illuminate\Database\Query\Builder;
  */
 class Member extends Model{
 
+    protected $table = 'member';
+
     use ActiveScopeTrait;
 
-    public function emailScope(Builder $query, $email){
+    public function scopeEmail(Builder $query, $email){
         return $query->where('email', $email)->where('login', 1);
     }
 
-    public function usernameScope(Builder $query, $username){
+    public function scopeUsername(Builder $query, $username){
         return $query->where('username', $username);
     }
 
-    public function unactivatedScope(Builder $query, $email){
+    public function scopeUnactivated(Builder $query, $email){
         return $query->where('email', $email)->where('activation', '!=');
     }
 

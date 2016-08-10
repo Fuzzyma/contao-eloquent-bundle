@@ -14,4 +14,6 @@ namespace Fuzzyma\Contao\EloquentBundle\Models;
  */
 class Style extends Model{
 
+    protected $table = 'style';
+
 }
